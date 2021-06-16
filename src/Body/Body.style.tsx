@@ -14,6 +14,21 @@ export const Styles = {
       color: ${({ theme }) => theme.colors.title};
       font-weight: bold;
     }
+
+    .result {
+      display: flex;
+      align-items: flex-end;
+      gap: 5px;
+      margin-bottom: 25px;
+      h2 {
+        margin: 0;
+      }
+
+      p {
+        margin: 0;
+        margin-bottom: 3px;
+      }
+    }
   `,
   ShapesContainer: styled.div`
     display: flex;
@@ -22,6 +37,15 @@ export const Styles = {
     /* justify-content: space-between;
     width: 50%; */
     gap: 25px;
+    margin-bottom: 50px;
+  `,
+  ResultContainer: styled.div`
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    /* justify-content: space-between;
+    width: 50%; */
+    gap: 15px;
     margin-bottom: 50px;
   `,
 };

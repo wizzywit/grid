@@ -3,6 +3,7 @@ import ColorButton from "../components/ColorButton/ColorButton";
 import ShapeButton from "../components/ShapeButton/ShapeButton";
 import { Styles } from "./Body.style";
 import { red, blue, green, yellow, cyan, grey } from "../colors";
+import Item from "../components/Item/Item";
 
 const colors = [
   { id: red, isActive: true },
@@ -45,6 +46,18 @@ const Body = () => {
           />
         ))}
       </Styles.ShapesContainer>
+      <div className="result">
+        <h2>All oval items.</h2>
+        <p>(6)</p>
+      </div>
+      <Styles.ResultContainer>
+        <Item shape="oval" color="red" />
+        <Item shape="oval" color="blue" />
+        <Item shape="oval" color="green" />
+        <Item shape="oval" color="yellow" />
+        <Item shape="oval" color="cyan" />
+        <Item shape="oval" color="grey" />
+      </Styles.ResultContainer>
     </Styles.Container>
   );
 };
