@@ -7,11 +7,6 @@ import AuthContext from "../context/AuthContext";
 
 const gridTitle = (colors: Array<string>, shapes: Array<string>): string => {
   if (colors.length === 6 && shapes.length === 5) return "All items";
-  else if (
-    (colors.length === 6 && shapes.length > 1) ||
-    (shapes.length === 5 && colors.length > 1)
-  )
-    return "Multiple items.";
   else if (shapes.length === 5 && colors.length === 1)
     return `All ${colors[0]} items.`;
   else if (colors.length === 6 && shapes.length === 1)
@@ -20,7 +15,9 @@ const gridTitle = (colors: Array<string>, shapes: Array<string>): string => {
     return `Multiple ${colors[0]} items.`;
   else if (colors.length > 1 && shapes.length === 1)
     return `Multiple ${shapes[0]} items.`;
-  else return `${toProperCase(shapes[0])} ${colors[0]} items.`;
+  else if (shapes.length === 1 && colors.length === 1)
+    return `${toProperCase(shapes[0])} ${colors[0]} items.`;
+  else return "Multiple items.";
 };
 
 const toProperCase = function (s: string): string {
