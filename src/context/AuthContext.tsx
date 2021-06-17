@@ -1,26 +1,31 @@
 import React from "react";
 
-interface IUser {
-  username: string;
-}
 interface DataArray {
   color: string;
   shape: string;
 }
 
+export type Filter = (
+  c: Array<string> | ((c: Array<string>) => Array<string>)
+) => void;
+
+type PerformFilterType = (
+  shape: string,
+  shapesFilter: Array<string> | undefined,
+  filter: Filter | undefined,
+  type: string
+) => void;
+
 type AuthContextType = {
   login?: () => void;
   logout?: () => void;
-  getCurrentUser?: () => IUser | null;
   data?: Array<DataArray>;
   shapesFilter?: Array<string>;
-  setShapesFilter?: (
-    c: Array<string> | ((c: Array<string>) => Array<string>)
-  ) => void;
+  setShapesFilter?: Filter;
   colorsFilter?: Array<string>;
-  setColorsFilter?: (
-    c: Array<string> | ((c: Array<string>) => Array<string>)
-  ) => void;
+  setColorsFilter?: Filter;
+  isLoggedIn?: boolean;
+  performSelect?: PerformFilterType;
 };
 const AuthContext = React.createContext<AuthContextType>({});
 

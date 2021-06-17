@@ -1,29 +1,26 @@
 import React, { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
+// import { performSelect } from "../../helper";
 import { Styles } from "./ShapeButton.style";
 
-type ShapeButtonProps = {
+export type ShapeButtonProps = {
   text: string;
   isActive?: boolean;
 };
 const ShapeButton: React.FC<ShapeButtonProps> = ({ text, isActive }) => {
-  const { shapesFilter, setShapesFilter } = useContext(AuthContext);
-  const performSelect = (shape: string) => {
-    shape = shape.toLowerCase();
-    if (shapesFilter?.includes(shape)) {
-      const newArr = shapesFilter?.filter((el) => el !== shape);
-      if (newArr.length === 0) {
-        if (setShapesFilter)
-          setShapesFilter(["oval", "traingle", "round", "square", "rectangle"]);
-      } else {
-        if (setShapesFilter) setShapesFilter(newArr);
-      }
-    } else {
-      if (setShapesFilter) setShapesFilter((prev) => [...prev, shape]);
-    }
-  };
+  const { shapesFilter, setShapesFilter, performSelect } =
+    useContext(AuthContext);
+
   return (
-    <Styles.Container isActive={isActive} onClick={() => performSelect(text)}>
+    <Styles.Container
+      isActive={isActive}
+      onClick={() => {
+        if (performSelect)
+          return performSelect(text, shapesFilter, setShapesFilter, "shape");
+      }}
+      data-testid="shape"
+      data-test-active={isActive}
+    >
       <p>{text}</p>
     </Styles.Container>
   );

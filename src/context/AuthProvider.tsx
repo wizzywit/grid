@@ -1,10 +1,12 @@
 import AuthContext from "./AuthContext";
 import { useState, useEffect, FC, useCallback } from "react";
 import axios from "axios";
+import { performSelect } from "../helper";
 
 type Props = {};
 
 const AuthProvider: FC<Props> = ({ children }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const login = async () => {
     try {
       const response = await attemptLogin;
@@ -13,7 +15,7 @@ const AuthProvider: FC<Props> = ({ children }) => {
         username: "user",
       };
       localStorage.setItem("loggedUser", JSON.stringify(user));
-      window.location.reload();
+      setIsLoggedIn(true);
     } catch (error) {
       console.log(error);
       throw new Error(error);
@@ -27,21 +29,21 @@ const AuthProvider: FC<Props> = ({ children }) => {
   });
   const logout = () => {
     localStorage.removeItem("loggedUser");
-    window.location.reload();
+    setIsLoggedIn(false);
   };
 
   interface IUser {
     username: string;
   }
 
-  const getCurrentUser = (): IUser | null => {
+  const getCurrentUser = useCallback((): IUser | null => {
     var userStr = localStorage.getItem("loggedUser");
     if (userStr) {
       return JSON.parse(userStr || "");
     } else {
       return null;
     }
-  };
+  }, []);
   interface IResponse {
     items?: Array<{ color: string; shape: string }>;
   }
@@ -97,6 +99,9 @@ const AuthProvider: FC<Props> = ({ children }) => {
   useEffect(() => {
     getData();
   }, []);
+  useEffect(() => {
+    getCurrentUser() ? setIsLoggedIn(true) : setIsLoggedIn(false);
+  }, [getCurrentUser]);
 
   useEffect(() => {
     filterResult();
@@ -105,12 +110,13 @@ const AuthProvider: FC<Props> = ({ children }) => {
   const value = {
     login,
     logout,
-    getCurrentUser,
     data,
     setShapesFilter,
     setColorsFilter,
     shapesFilter,
     colorsFilter,
+    isLoggedIn,
+    performSelect,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
