@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Styles } from "./Header.style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { faSignOutAlt, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
+import AuthContext from "../context/AuthContext";
 
 const Header = () => {
+  const { login, getCurrentUser, logout } = useContext(AuthContext);
+  const user = getCurrentUser ? getCurrentUser() : null;
+
   return (
     <Styles.HeaderContainer>
       <p>SHAPES</p>
-      <Styles.AuthContainer>
-        <p>Logout</p>
-        <FontAwesomeIcon icon={faSignOutAlt} />
-      </Styles.AuthContainer>
+      {user ? (
+        <Styles.AuthContainer color={"red"} onClick={logout}>
+          <p>Logout</p>
+          <FontAwesomeIcon icon={faSignOutAlt} />
+        </Styles.AuthContainer>
+      ) : (
+        <Styles.AuthContainer color={"green"} onClick={login}>
+          <p>Login</p>
+          <FontAwesomeIcon icon={faSignInAlt} />
+        </Styles.AuthContainer>
+      )}
     </Styles.HeaderContainer>
   );
 };

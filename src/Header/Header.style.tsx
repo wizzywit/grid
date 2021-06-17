@@ -1,5 +1,7 @@
 import styled from "styled-components";
-
+interface ButtonProps {
+  color?: string;
+}
 export const Styles = {
   HeaderContainer: styled.div`
     display: flex;
@@ -15,11 +17,11 @@ export const Styles = {
       padding: 15px 25px 15px 25px;
     }
   `,
-  AuthContainer: styled.button`
+  AuthContainer: styled.button<ButtonProps>`
     display: flex;
     align-items: center;
     gap: 10px;
-    color: red;
+    color: ${({ color }) => (color ? color : "red")};
     border: 0;
     padding: 0;
     cursor: pointer;

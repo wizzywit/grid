@@ -8,7 +8,12 @@ const AuthProvider: FC<Props> = ({ children }) => {
   const login = async () => {
     try {
       const response = await attemptLogin;
-      return response;
+      console.log(response);
+      const user = {
+        username: "user",
+      };
+      localStorage.setItem("loggedUser", JSON.stringify(user));
+      window.location.reload();
     } catch (error) {
       console.log(error);
       throw new Error(error);
@@ -21,7 +26,7 @@ const AuthProvider: FC<Props> = ({ children }) => {
     });
   });
   const logout = () => {
-    localStorage.removeItem("user");
+    localStorage.removeItem("loggedUser");
     window.location.reload();
   };
 
@@ -30,7 +35,7 @@ const AuthProvider: FC<Props> = ({ children }) => {
   }
 
   const getCurrentUser = (): IUser | null => {
-    var userStr = localStorage.getItem("user");
+    var userStr = localStorage.getItem("loggedUser");
     if (userStr) {
       return JSON.parse(userStr || "");
     } else {
