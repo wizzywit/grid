@@ -1,27 +1,8 @@
 import styled from "styled-components";
-import { red, blue, green, yellow, cyan, grey } from "../../colors";
+import { getColor } from "../../helper";
 interface ItemProps {
   color: string;
 }
-
-const getColor = (color: string): string => {
-  switch (color) {
-    case "red":
-      return red;
-    case "blue":
-      return blue;
-    case "green":
-      return green;
-    case "yellow":
-      return yellow;
-    case "cyan":
-      return cyan;
-    case "grey":
-      return grey;
-    default:
-      return "white";
-  }
-};
 
 export const Styles = {
   Container: styled.div<ItemProps>`
