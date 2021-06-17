@@ -1,5 +1,5 @@
 import AuthContext from "./AuthContext";
-import { useState, useEffect, FC } from "react";
+import { useState, useEffect, FC, useCallback } from "react";
 import axios from "axios";
 
 type Props = {};
@@ -74,7 +74,7 @@ const AuthProvider: FC<Props> = ({ children }) => {
       });
   };
 
-  const filterResult = () => {
+  const filterResult = useCallback(() => {
     const filteredArr = response.items?.filter((item) => {
       console.log(
         colorsFilter.includes(item.color),
@@ -87,17 +87,15 @@ const AuthProvider: FC<Props> = ({ children }) => {
       );
     });
     setData(filteredArr);
-  };
+  }, [colorsFilter, response, shapesFilter]);
 
   useEffect(() => {
     getData();
   }, []);
 
-  console.log(data);
-
   useEffect(() => {
     filterResult();
-  }, [colorsFilter, shapesFilter]);
+  }, [colorsFilter, shapesFilter, filterResult]);
 
   const value = {
     login,
