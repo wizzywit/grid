@@ -16,7 +16,7 @@ type PerformFilterType = (
   type: string
 ) => void;
 
-type AuthContextType = {
+export type AuthContextType = {
   login?: () => void;
   logout?: () => void;
   data?: Array<DataArray>;

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Context should show value from provider 1`] = `
+<div>
+  <span>
+    Received: 
+    testing
+  </span>
+</div>
+`;
