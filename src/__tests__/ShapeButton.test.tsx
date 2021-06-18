@@ -3,49 +3,49 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import AuthContext from "../context/AuthContext";
 
-import ShapeButton, {
-  ShapeButtonProps,
-} from "../components/ShapeButton/ShapeButton";
+import ColorButton, {
+  ColorButtonProps,
+} from "../components/ColorButton/ColorButton";
+import { red } from "../colors";
 
-function renderShapeButton(props: Partial<ShapeButtonProps> = {}) {
-  const defaultProps: ShapeButtonProps = {
-    text: "Triangle",
+function renderColorButton(props: Partial<ColorButtonProps> = {}) {
+  const defaultProps: ColorButtonProps = {
+    color: red,
   };
-  return render(<ShapeButton {...defaultProps} {...props} />);
+  return render(<ColorButton {...defaultProps} {...props} />);
 }
 
-describe("ShapeButton", () => {
-  test("should display single shape button with text", async () => {
-    const { container, findByText } = renderShapeButton();
-    const text = await findByText("Triangle");
-    expect(text).toBeInTheDocument();
-    expect(container.firstChild?.firstChild).toHaveTextContent("Triangle");
+describe("ColorButton", () => {
+  test("should display single color button", async () => {
+    const { findByTestId } = renderColorButton();
+    const colorButton = await findByTestId("color");
+    expect(colorButton).toHaveAttribute("color", red);
   });
-  test("should display selected shape button", async () => {
-    const { findByTestId } = renderShapeButton({ isActive: true });
-    const shapeButton = await findByTestId("shape");
-    expect(shapeButton.getAttribute("data-test-active")).toContain("true");
+  test("should display selected color button", async () => {
+    const { findByTestId } = renderColorButton({ isActive: true });
+    const colorButton = await findByTestId("color");
+    expect(colorButton).toHaveAttribute("data-test-active", "true");
   });
-  test("should display unselected shape button", async () => {
-    const { findByTestId } = renderShapeButton({ isActive: false });
-    const shapeButton = await findByTestId("shape");
-    expect(shapeButton.getAttribute("data-test-active")).toContain("false");
+  test("should display unselected color button", async () => {
+    const { findByTestId } = renderColorButton({ isActive: false });
+    const colorButton = await findByTestId("color");
+    expect(colorButton).toHaveAttribute("data-test-active", "false");
   });
   test("should toggle selected state", async () => {
-    const defaultProps: ShapeButtonProps = {
-      text: "Triangle",
+    const defaultProps: ColorButtonProps = {
+      color: red,
     };
 
     const performSelect = jest.fn();
 
     const { findByTestId } = render(
       <AuthContext.Provider value={{ performSelect }}>
-        <ShapeButton {...defaultProps} />
+        <ColorButton {...defaultProps} />
       </AuthContext.Provider>
     );
 
-    const shapeButton = await findByTestId("shape");
-    fireEvent.click(shapeButton);
+    const colorButton = await findByTestId("color");
+    fireEvent.click(colorButton);
     expect(performSelect).toHaveBeenCalledTimes(1);
   });
 });

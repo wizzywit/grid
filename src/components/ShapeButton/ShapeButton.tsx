@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
-// import { performSelect } from "../../helper";
 import { Styles } from "./ShapeButton.style";
 
 export type ShapeButtonProps = {
@@ -16,7 +15,7 @@ const ShapeButton: React.FC<ShapeButtonProps> = ({ text, isActive }) => {
       isActive={isActive}
       onClick={() => {
         if (performSelect)
-          return performSelect(text, shapesFilter, setShapesFilter, "shape");
+          performSelect(text, shapesFilter, setShapesFilter, "shape");
       }}
       data-testid="shape"
       data-test-active={isActive}

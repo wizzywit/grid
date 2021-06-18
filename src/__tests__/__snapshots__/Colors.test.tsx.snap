@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Color should display list of colors 1`] = `
+<div>
+  <div
+    class="sc-bdnxRM gYskiT"
+  >
+    <button
+      class="sc-gtsrHT hEtweE"
+      color="#ee312a"
+      data-testid="color"
+    />
+    <button
+      class="sc-gtsrHT gAgxHu"
+      color="#1600ff"
+      data-testid="color"
+    />
+    <button
+      class="sc-gtsrHT eNrMSg"
+      color="#008001"
+      data-testid="color"
+    />
+    <button
+      class="sc-gtsrHT eORXRq"
+      color="#feff00"
+      data-testid="color"
+    />
+    <button
+      class="sc-gtsrHT keuowZ"
+      color="#B3CBFB"
+      data-testid="color"
+    />
+    <button
+      class="sc-gtsrHT iMWynB"
+      color="#999999"
+      data-testid="color"
+    />
+  </div>
+</div>
+`;

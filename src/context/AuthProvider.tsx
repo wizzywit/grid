@@ -2,11 +2,15 @@ import AuthContext from "./AuthContext";
 import { useState, useEffect, FC, useCallback } from "react";
 import axios from "axios";
 import { performSelect } from "../helper";
+import { red, blue, green, yellow, cyan, grey } from "../colors";
 
 type Props = {};
 
 const AuthProvider: FC<Props> = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const colors = [red, blue, green, yellow, cyan, grey];
+  const shapes = ["Oval", "Traingle", "Round", "Square", "Rectangle"];
+
   const login = async () => {
     try {
       const response = await attemptLogin;
@@ -117,6 +121,8 @@ const AuthProvider: FC<Props> = ({ children }) => {
     colorsFilter,
     isLoggedIn,
     performSelect,
+    colors,
+    shapes,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

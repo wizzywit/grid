@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Shapes should display list of colors 1`] = `
+<div>
+  <div
+    class="sc-bdnxRM gYskiT"
+  >
+    <button
+      class="sc-gtsrHT icDXbM"
+      data-testid="shape"
+    >
+      <p>
+        Oval
+      </p>
+    </button>
+    <button
+      class="sc-gtsrHT icDXbM"
+      data-testid="shape"
+    >
+      <p>
+        Traingle
+      </p>
+    </button>
+    <button
+      class="sc-gtsrHT icDXbM"
+      data-testid="shape"
+    >
+      <p>
+        Round
+      </p>
+    </button>
+    <button
+      class="sc-gtsrHT icDXbM"
+      data-testid="shape"
+    >
+      <p>
+        Square
+      </p>
+    </button>
+    <button
+      class="sc-gtsrHT icDXbM"
+      data-testid="shape"
+    >
+      <p>
+        Rectangle
+      </p>
+    </button>
+  </div>
+</div>
+`;

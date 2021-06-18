@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Result should display list of items 1`] = `
+<div>
+  <div
+    class="sc-bdnxRM kiMljk"
+  >
+    <div
+      class="sc-gtsrHT kqzUsG"
+      color="red"
+      data-testid="item"
+    >
+      <div
+        class="oval"
+        data-shape="oval"
+        data-testid="shape"
+      />
+    </div>
+    <div
+      class="sc-gtsrHT eOLTIH"
+      color="grey"
+      data-testid="item"
+    >
+      <div
+        class="traingle"
+        data-shape="traingle"
+        data-testid="shape"
+      />
+    </div>
+    <div
+      class="sc-gtsrHT jZZkxs"
+      color="blue"
+      data-testid="item"
+    >
+      <div
+        class="round"
+        data-shape="round"
+        data-testid="shape"
+      />
+    </div>
+    <div
+      class="sc-gtsrHT bgdPXS"
+      color="green"
+      data-testid="item"
+    >
+      <div
+        class="square"
+        data-shape="square"
+        data-testid="shape"
+      />
+    </div>
+    <div
+      class="sc-gtsrHT eOLTIH"
+      color="grey"
+      data-testid="item"
+    >
+      <div
+        class="rectangle"
+        data-shape="rectangle"
+        data-testid="shape"
+      />
+    </div>
+  </div>
+</div>
+`;

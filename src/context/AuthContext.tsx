@@ -26,6 +26,8 @@ type AuthContextType = {
   setColorsFilter?: Filter;
   isLoggedIn?: boolean;
   performSelect?: PerformFilterType;
+  colors?: Array<string>;
+  shapes?: Array<string>;
 };
 const AuthContext = React.createContext<AuthContextType>({});
 

@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Body should display body containing filters and results 1`] = `
+<div>
+  <div
+    class="sc-bdnxRM dWjOYm"
+  >
+    <h2
+      data-testid="title"
+    >
+      Filters
+    </h2>
+    <p
+      class="filters"
+      data-testid="shape-title"
+    >
+      Shapes
+    </p>
+    <div
+      class="sc-hKFxyN clYRje"
+    />
+    <p
+      class="filters"
+      data-testid="color-title"
+    >
+      Colors
+    </p>
+    <div
+      class="sc-jSFjdj ghaAYX"
+    />
+    <div
+      class="result"
+    >
+      <h2 />
+      <p>
+        (
+        5
+        )
+      </p>
+    </div>
+    <div
+      class="sc-gtsrHT ktoWBZ"
+    >
+      <div
+        class="sc-dlnjwi bKRnTG"
+        color="red"
+        data-testid="item"
+      >
+        <div
+          class="oval"
+          data-shape="oval"
+          data-testid="shape"
+        />
+      </div>
+      <div
+        class="sc-dlnjwi iCSYJP"
+        color="grey"
+        data-testid="item"
+      >
+        <div
+          class="traingle"
+          data-shape="traingle"
+          data-testid="shape"
+        />
+      </div>
+      <div
+        class="sc-dlnjwi cfJJck"
+        color="blue"
+        data-testid="item"
+      >
+        <div
+          class="round"
+          data-shape="round"
+          data-testid="shape"
+        />
+      </div>
+      <div
+        class="sc-dlnjwi ebcTyC"
+        color="green"
+        data-testid="item"
+      >
+        <div
+          class="square"
+          data-shape="square"
+          data-testid="shape"
+        />
+      </div>
+      <div
+        class="sc-dlnjwi iCSYJP"
+        color="grey"
+        data-testid="item"
+      >
+        <div
+          class="rectangle"
+          data-shape="rectangle"
+          data-testid="shape"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
